@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-
-
 @Getter
 @NoArgsConstructor
 @Entity                 // 테이블과 링크될 클래스임을 나타냄
@@ -34,6 +32,11 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 
 }
