@@ -1,5 +1,6 @@
 package com.ddingdongsogang.backend.springboot.domain.posts;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import javax.persistence.GenerationType;
 @Getter
 @NoArgsConstructor
 @Entity                 // 테이블과 링크될 클래스임을 나타냄
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id     // pk
     @GeneratedValue(strategy = GenerationType.IDENTITY) // pk 생성 규칙. auto inrement
