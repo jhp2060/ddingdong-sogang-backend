@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
@@ -18,11 +19,20 @@ public class Notice extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 500, nullable = false)
+    @Column(length = 100, nullable = false)
     private String title;
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
+
+    @Column(length=20)
+    private String author;
+
+    @Column(length=300)
+    private String url;
+
+    @Column
+    private LocalDateTime postedAt;
 
     @ManyToOne
     @JoinColumn(name = "board_id")
