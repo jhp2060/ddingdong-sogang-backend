@@ -1,4 +1,4 @@
-package com.ddingdongsogang.backend.springboot.domain.posts;
+package com.ddingdongsogang.backend.springboot.domain.shared;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
