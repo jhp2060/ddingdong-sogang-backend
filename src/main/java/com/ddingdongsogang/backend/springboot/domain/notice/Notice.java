@@ -39,9 +39,14 @@ public class Notice extends BaseTimeEntity {
     private Board board;
 
     @Builder
-    public Notice(String title, String content, Board board) {
+    public Notice(String title, String content,
+                  String author, String url, LocalDateTime postedAt,
+                  Board board) {
         this.title = title;
         this.content = content;
+        this.author = author;
+        this.url = url;
+        this.postedAt = postedAt;
         this.board = board;
     }
 }

@@ -25,6 +25,12 @@ public class NoticeService {
     }
 
     public List<NoticeResponseDto> findByBoardId(Long boardId) {
+        /*
+        Board board = boardRepository.findById(id).orElseThrow(
+            () -> new IllegalArgumentException(
+                "No board with that id (id: "+boardId"+")")
+        );
+        */
         List <Notice> entities = noticeRepository.findAll();
         List<NoticeResponseDto> ret = new ArrayList<NoticeResponseDto>();
         entities.stream().filter(
