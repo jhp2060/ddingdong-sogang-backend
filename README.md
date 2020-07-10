@@ -22,7 +22,7 @@
 - `lombok` : 
 - `Entity` : `@Entity`를 통해서 지정. DB와 직접적으로 맞닿은 핵심 클래스. DB table의 기준이 됨.
 - `DTO` : Data Transfer Object. 계층 간 데이터 교환을 위한 Java Beans. Entity 클래스의 구조를 기준으로, 
-각각의 View마다 그 구조를 변경해서 사용해야 하는 클래스 
+각각의 View마다 그 구조를 변경해서 사용해야 하는 클래스. (==Django의 Serializer?)
 - `DAO` : Data Access Object. DB의 data에 접근하는 데에 사용되는 객체
 - `VO` : Value Object. read only 속성(literal)을 갖는 DTO. 
 - `Dirty Checking` : 
