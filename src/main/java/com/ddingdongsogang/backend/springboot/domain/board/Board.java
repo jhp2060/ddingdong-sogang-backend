@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.net.URL;
 import java.util.Collection;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor

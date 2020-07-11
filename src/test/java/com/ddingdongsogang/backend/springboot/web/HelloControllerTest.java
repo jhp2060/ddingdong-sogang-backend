@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class HelloControllerTest {
 
     @Autowired  // 스프링이 관리하는 bean을 주입
-    private MockMvc mvc;    // api 테스트용 mvc
+    private MockMvc cvc;    // api 테스트용 mvc
 
     @Test
     public void hello가_리턴된다() throws Exception{
