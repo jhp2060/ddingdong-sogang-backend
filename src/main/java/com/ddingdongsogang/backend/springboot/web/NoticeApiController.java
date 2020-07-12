@@ -1,7 +1,6 @@
 package com.ddingdongsogang.backend.springboot.web;
 
 import com.ddingdongsogang.backend.springboot.service.notice.NoticeService;
-import com.ddingdongsogang.backend.springboot.service.posts.PostsService;
 import com.ddingdongsogang.backend.springboot.web.dto.NoticeResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class SiteService {
 
-    SiteRepository siteRepository;
+    private final SiteRepository siteRepository;
 
     public List<SiteResponseDto> findAll() {
         List<Site> entities = siteRepository.findAll();

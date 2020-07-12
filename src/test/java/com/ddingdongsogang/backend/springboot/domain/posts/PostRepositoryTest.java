@@ -19,7 +19,7 @@ public class PostRepositoryTest {
     @Autowired
     PostsRepository postsRepository;
 
-    @After      // Junit에서 단위테스트 끝날 때마다 수행되는 메소
+    @After      // Junit에서 단위테스트 끝날 때마다 수행되는 메소드
     public void cleanup() {
         postsRepository.deleteAll();
     }

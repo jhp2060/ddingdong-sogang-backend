@@ -27,6 +27,21 @@
 - `VO` : Value Object. read only 속성(literal)을 갖는 DTO. 
 - `Dirty Checking` : 
 
+## Entity
+
+## Repository(DAO)
+- `repository.findById` : 파라미터 `ID`값을 가지고 해당 ID에 해당하는 튜플을 가지고 옴. 
+`findById`의 리턴 데이터 타입은 해당 모델 클래스(`Model`)가 아닌, `Optional<Model>`의 형태이므로, 
+결과 뒤에 `orElse`나 `orElseGet`등의 메소드를 사용. 
+    - `Optional` : 찾는 값이 없을 경우에 
+
+## DTO
+
+## Service
+
+## controller
+
 ## Test
 - `Junit`
 - `H2` : `@SpringBootTest` 사용 시, H2 DB 실행이 기본 값.~~(==SQLite of Django??)~~
+- 
