@@ -41,5 +41,6 @@ dependencies {
     compile('com.h2database:h2')
     compile('org.mariadb.jdbc:mariadb-java-client')
     compile group: 'com.github.javafaker', name: 'javafaker', version: '0.15'
+    compile 'org.jsoup:jsoup:1.13.1'
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
