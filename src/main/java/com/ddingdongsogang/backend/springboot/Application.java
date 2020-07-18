@@ -11,7 +11,7 @@ public class Application {
     public static void main(String[] args) throws Exception{
         // spring boot 내장 WAS를 실행. Tomcat이 없어도 서비스 배포 및 실행 가능
 //        SpringApplication.run(Application.class, args);
-        BoardCrawler boardCrawler = new BoardCrawler();
-        boardCrawler.getNoticeTitle(1L);
+        BoardCrawler boardCrawler = new BoardCrawler(null);
+        boardCrawler.testAtLocal();
     }
 }
