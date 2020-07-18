@@ -20,6 +20,12 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
+    private int actualId;
+
+    @Column
+    private Long latestNoticeId;
+
     @Column(length=100, nullable=false)
     private String name;
 
@@ -31,7 +37,9 @@ public class Board {
     private Site site;
 
     @Builder
-    public Board(String name, String url, Site site) {
+    public Board(String name, int actualId, String url, Site site) {
+        this.actualId = actualId;
+        this.latestNoticeId = 0L;
         this.name = name;
         this.url = url;
         this.site = site;
