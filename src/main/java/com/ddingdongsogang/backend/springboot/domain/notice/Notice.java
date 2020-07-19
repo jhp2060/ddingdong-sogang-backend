@@ -24,9 +24,6 @@ public class Notice extends BaseTimeEntity {
     @Column(length = 100, nullable = false)
     private String title;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String content;
-
     @Column(length=20)
     private String author;
 
@@ -46,7 +43,6 @@ public class Notice extends BaseTimeEntity {
                   Board board) {
         this.actualId = actualId;
         this.title = title;
-        this.content = content;
         this.author = author;
         this.url = url;
         this.postedAt = postedAt;

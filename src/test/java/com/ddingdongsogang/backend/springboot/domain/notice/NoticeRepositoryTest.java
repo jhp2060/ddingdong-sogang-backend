@@ -30,7 +30,6 @@ public class NoticeRepositoryTest {
         String url = "http://sogang.ac.kr";
         LocalDateTime postedAt = LocalDateTime.now();
         Board board = new Board();
-
     }
 
 }
