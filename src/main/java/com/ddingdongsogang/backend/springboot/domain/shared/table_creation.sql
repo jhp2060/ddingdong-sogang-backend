@@ -17,17 +17,20 @@ create table site (
 
 create table board (
     id bigint not null auto_increment,
+    actual_id integer,
+    latest_notice_id bigint,
     name varchar(100) not null,
     url varchar(300) not null,
-    site_id bigint, primary key (id)
+    site_id bigint,
+    primary key (id)
 ) engine=InnoDB;
 
 create table notice (
     id bigint not null auto_increment,
     created_date datetime,
     modified_date datetime,
+    actual_id bigint,
     author varchar(20),
-    content TEXT not null,
     posted_at datetime,
     title varchar(100) not null,
     url varchar(300),
