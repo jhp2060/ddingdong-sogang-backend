@@ -1,5 +1,7 @@
 package com.ddingdongsogang.backend.springboot.service.notice;
 
+import com.ddingdongsogang.backend.springboot.domain.board.Board;
+import com.ddingdongsogang.backend.springboot.domain.board.BoardRepository;
 import com.ddingdongsogang.backend.springboot.domain.notice.Notice;
 import com.ddingdongsogang.backend.springboot.domain.notice.NoticeRepository;
 import com.ddingdongsogang.backend.springboot.web.dto.NoticeResponseDto;
@@ -14,6 +16,7 @@ import java.util.stream.Collectors;
 @Service
 public class NoticeService {
     private final NoticeRepository noticeRepository;
+    private final BoardRepository boardRepository;
 
     public List<NoticeResponseDto> findAll() {
         List<Notice> entities = noticeRepository.findAll();
@@ -25,17 +28,13 @@ public class NoticeService {
     }
 
     public List<NoticeResponseDto> findByBoardId(Long boardId) {
-        /*
-        Board board = boardRepository.findById(id).orElseThrow(
+        Board board = boardRepository.findById(boardId).orElseThrow(
             () -> new IllegalArgumentException(
-                "No board with that id (id: "+boardId"+")")
+                "No board with that id (id: "+boardId+")")
         );
-        */
-        List <Notice> entities = noticeRepository.findAll();
+
+        List <Notice> entities = noticeRepository.findByBoard(board);
         List<NoticeResponseDto> ret = new ArrayList<NoticeResponseDto>();
-        entities.stream().filter(
-                e->e.getBoard().getId().equals(boardId))
-                .collect(Collectors.toList());
         for (Notice n : entities){
             ret.add(new NoticeResponseDto(n));
         }

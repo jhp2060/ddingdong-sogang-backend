@@ -13,13 +13,11 @@ public class BoardResponseDto {
     private String name;
     private String url;
     private String siteName;
-    private List<Notice> noticeList;
 
     public BoardResponseDto(Board board) {
         this.id = board.getId();
         this.name = board.getName();
         this.url = board.getUrl();
         this.siteName = board.getSite().getName();
-
     }
 }
