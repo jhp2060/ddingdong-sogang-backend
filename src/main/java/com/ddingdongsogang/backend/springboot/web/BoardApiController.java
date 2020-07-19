@@ -5,6 +5,7 @@ import com.ddingdongsogang.backend.springboot.web.dto.BoardResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -25,5 +26,9 @@ public class BoardApiController {
         return boardService.findById(id);
     }
 
-
+    @PostMapping("/api/v1/boards/{id}/crawl")
+    public BoardResponseDto crawlAndSaveNewNotices(
+            @PathVariable Long id) {
+        return boardService.crawlAndSaveNewNotices(id);
+    }
 }
