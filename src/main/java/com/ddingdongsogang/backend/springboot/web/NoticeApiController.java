@@ -15,18 +15,18 @@ import java.util.List;
 public class NoticeApiController {
     private final NoticeService noticeService;
 
-    @GetMapping("/api/v1/notice")
+    @GetMapping("/api/v1/notices")
     public List<NoticeResponseDto> findAll() {
         return noticeService.findAll();
     }
 
-    @GetMapping("/api/v1/board/notice")
+    @GetMapping("/api/v1/board/notices")
     public List<NoticeResponseDto> findByBoardId(
             @RequestParam Long boardId) {
         return noticeService.findByBoardId(boardId);
     }
 
-    @GetMapping("/api/v1/notice/{id}")
+    @GetMapping("/api/v1/notices/{id}")
     public NoticeResponseDto findById(@PathVariable Long id) {
         return noticeService.findById(id);
     }

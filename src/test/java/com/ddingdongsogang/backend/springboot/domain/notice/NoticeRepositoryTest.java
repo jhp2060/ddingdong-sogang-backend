@@ -25,7 +25,6 @@ public class NoticeRepositoryTest {
     @Test
     public void readNoticeSuccess() {
         String title = "공지사항";
-        String content = "공지사항 입니다.";
         String author = "종합봉사실";
         String url = "http://sogang.ac.kr";
         LocalDateTime postedAt = LocalDateTime.now();

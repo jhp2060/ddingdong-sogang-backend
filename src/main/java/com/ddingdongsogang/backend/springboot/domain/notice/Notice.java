@@ -38,7 +38,7 @@ public class Notice extends BaseTimeEntity {
     private Board board;
 
     @Builder
-    public Notice(Long actualId, String title, String content,
+    public Notice(Long actualId, String title,
                   String author, String url, LocalDateTime postedAt,
                   Board board) {
         this.actualId = actualId;

@@ -57,7 +57,6 @@ public class NoticeApiControllerTest {
     public void findAllSuccess() throws Exception{
         Faker faker = new Faker(new Locale("ko-KO"));
         String title = faker.lorem().sentence(3);
-        String content = faker.lorem().sentence(100);
         String author = faker.lorem().word();
         String url = faker.internet().url();
         LocalDateTime postedAt = LocalDateTime.now();
@@ -77,7 +76,6 @@ public class NoticeApiControllerTest {
         Board board = boardRepository.findById(1L).orElse(null);
         noticeRepository.save(Notice.builder()
                 .title(title)
-                .content(content)
                 .author(author)
                 .url(url)
                 .postedAt(postedAt)
@@ -85,7 +83,7 @@ public class NoticeApiControllerTest {
                 .build()
         );
 
-        String responseUrl = "http://localhost:"+port+"/api/v1/notice";
+        String responseUrl = "http://localhost:"+port+"/api/v1/notices";
 
         ResponseEntity<List> responseEntity
                 = restTemplate.getForEntity(responseUrl, List.class);
@@ -95,7 +93,6 @@ public class NoticeApiControllerTest {
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(now.get("title")).isEqualTo(title);
-        assertThat(now.get("content")).isEqualTo(content);
         assertThat(now.get("author")).isEqualTo(author);
         assertThat(LocalDateTime.parse(now.get("postedAt"))).isEqualTo(postedAt);
         assertThat(now.get("boardName")).isEqualTo(board.getName());
