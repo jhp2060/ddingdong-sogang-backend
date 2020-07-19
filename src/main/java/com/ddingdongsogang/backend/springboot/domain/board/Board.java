@@ -1,17 +1,15 @@
 package com.ddingdongsogang.backend.springboot.domain.board;
 
-import com.ddingdongsogang.backend.springboot.domain.notice.Notice;
 import com.ddingdongsogang.backend.springboot.domain.site.Site;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.net.URL;
-import java.util.Collection;
-import java.util.List;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 public class Board {
@@ -37,7 +35,7 @@ public class Board {
     private Site site;
 
     @Builder
-    public Board(String name, int actualId, String url, Site site) {
+    public Board(int actualId, String name, String url, Site site) {
         this.actualId = actualId;
         this.latestNoticeId = 0L;
         this.name = name;
