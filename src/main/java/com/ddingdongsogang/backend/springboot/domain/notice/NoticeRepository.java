@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface NoticeRepository extends JpaRepository<Notice, Long> {
     public List<Notice> findByBoard(Board board);
+    public boolean existsNoticeByActualIdAndBoard (Long actualId, Board board);
 }
