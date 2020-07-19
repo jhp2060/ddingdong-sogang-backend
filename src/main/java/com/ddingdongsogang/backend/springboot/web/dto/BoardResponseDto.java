@@ -4,10 +4,12 @@ import com.ddingdongsogang.backend.springboot.domain.board.Board;
 import com.ddingdongsogang.backend.springboot.domain.notice.Notice;
 import com.ddingdongsogang.backend.springboot.domain.notice.NoticeRepository;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Getter
+@NoArgsConstructor
 public class BoardResponseDto {
     private Long id;
     private String name;

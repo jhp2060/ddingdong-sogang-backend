@@ -19,7 +19,7 @@ public class BoardApiController {
         return boardService.findAll();
     }
 
-    @GetMapping("api/v1/boards/{id}")
+    @GetMapping("/api/v1/boards/{id}")
     public BoardResponseDto findById(
             @PathVariable Long id) {
         return boardService.findById(id);
