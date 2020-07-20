@@ -111,7 +111,7 @@ public class BoardCrawler {
 
                 noticeRepository.save(toSave);
             }
-            if (board.getLatestNoticeId() < latestActualNoticeId) ++page;
+            if (board.getLatestNoticeId() > latestActualNoticeId) ++page;
             else break;
         }
         board.setLatestNoticeId(latestActualNoticeId);
