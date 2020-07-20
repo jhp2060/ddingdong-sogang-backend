@@ -2,6 +2,8 @@ package com.ddingdongsogang.backend.springboot.web;
 
 import com.ddingdongsogang.backend.springboot.domain.board.Board;
 import com.ddingdongsogang.backend.springboot.domain.board.BoardRepository;
+import com.ddingdongsogang.backend.springboot.domain.notice.Notice;
+import com.ddingdongsogang.backend.springboot.domain.notice.NoticeRepository;
 import com.ddingdongsogang.backend.springboot.domain.site.Site;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.jni.Local;
@@ -17,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 @RequiredArgsConstructor
 public class BoardCrawler {
     private final BoardRepository boardRepository;
+    private final NoticeRepository noticeRepository;
 
     public void testAtLocal() throws IOException {
         String url = "http://www.sogang.ac.kr/front/boardlist.do?bbsConfigFK=1";
@@ -80,6 +83,11 @@ public class BoardCrawler {
 
                 if (latestActualNoticeId < actualNoticeId) latestActualNoticeId = actualNoticeId;
 
+                if (noticeRepository.existsNoticeByActualIdAndBoard(
+                        actualNoticeId, board)) {
+                    continue;
+                }
+
                 System.out.print(actualNoticeId + ": ");
 
                 Elements noticeElements = doc.select("span.text");
@@ -91,11 +99,22 @@ public class BoardCrawler {
                         DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
 
                 System.out.println(title + " / " + author + " / "+ postedAt);
+
+                Notice toSave = Notice.builder()
+                        .actualId(actualNoticeId)
+                        .title(title)
+                        .author(author)
+                        .postedAt(postedAt)
+                        .url(noticeUrl)
+                        .board(board)
+                        .build();
+
+                noticeRepository.save(toSave);
             }
             if (board.getLatestNoticeId() < latestActualNoticeId) ++page;
             else break;
         }
         board.setLatestNoticeId(latestActualNoticeId);
-        this.boardRepository.save(board);
+        boardRepository.save(board);
     }
 }
