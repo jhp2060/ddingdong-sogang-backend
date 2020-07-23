@@ -61,20 +61,19 @@ public class NoticeApiControllerTest {
         String url = faker.internet().url();
         LocalDateTime postedAt = LocalDateTime.now();
 
-        siteRepository.save(Site.builder()
+        Site site = siteRepository.save(Site.builder()
                 .name(title)
                 .url(url)
                 .build()
         );
 
-        boardRepository.save(Board.builder()
+        Board board = boardRepository.save(Board.builder()
                 .name(title)
                 .url(url)
                 .site(siteRepository.getOne(1L))
                 .build()
         );
-        Board board = boardRepository.findById(1L).orElse(null);
-        noticeRepository.save(Notice.builder()
+        Notice notice = noticeRepository.save(Notice.builder()
                 .title(title)
                 .author(author)
                 .url(url)

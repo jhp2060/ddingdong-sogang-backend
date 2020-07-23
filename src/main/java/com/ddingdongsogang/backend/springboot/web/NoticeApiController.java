@@ -16,7 +16,8 @@ public class NoticeApiController {
     private final NoticeService noticeService;
 
     @GetMapping("/api/v1/notices")
-    public List<NoticeResponseDto> findAll(@RequestParam Long boardId) {
+    public List<NoticeResponseDto> findAll(
+            @RequestParam(required = false) Long boardId) {
         if (boardId == null) return noticeService.findAll();
         return noticeService.findByBoardId(boardId);
     }
