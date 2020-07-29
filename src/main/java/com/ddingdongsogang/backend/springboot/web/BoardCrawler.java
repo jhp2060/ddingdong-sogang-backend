@@ -15,6 +15,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @RequiredArgsConstructor
 public class BoardCrawler {
@@ -45,6 +46,13 @@ public class BoardCrawler {
 
             System.out.println(title + " / " + author + " / "+ postedAt);
         }
+    }
+
+    public void saveNoticesOfAllBoard() throws IOException {
+        List<Board> boards = boardRepository.findAll();
+
+        for (Board b : boards) saveNoticesOfBoard(b.getId());
+
     }
 
     public void saveNoticesOfBoard(Long boardId) throws IOException {

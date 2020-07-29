@@ -50,7 +50,7 @@ public class SiteApiControllerTest {
                 .build()
         );
 
-        String responseUrl = "http://localhost:"+port+"/api/v1/site";
+        String responseUrl = "http://localhost:"+port+"/api/v1/sites";
 
         ResponseEntity<List> responseEntity
                 = restTemplate.getForEntity(responseUrl, List.class);

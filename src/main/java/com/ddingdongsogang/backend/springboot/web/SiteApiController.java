@@ -14,7 +14,7 @@ import java.util.List;
 public class SiteApiController {
     private final SiteService siteService;
 
-    @GetMapping("/api/v1/site")
+    @GetMapping("/api/v1/sites")
     public List<SiteResponseDto> findAll() {
         return siteService.findAll();
     }
