@@ -43,4 +43,7 @@ dependencies {
     compile group: 'com.github.javafaker', name: 'javafaker', version: '0.15'
     compile 'org.jsoup:jsoup:1.13.1'
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 }
